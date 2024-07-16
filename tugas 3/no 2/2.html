@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Faktorial dan Deret</title>
+</head>
+<head>
+    <title>Form Pemesanan Tiket</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: gray;
+            color: white;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Form Pemesanan Tiket Travel IBIK Abadi</h2>
+    <form id="ticketForm">
+        <label for="name">Nama Pemesan:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="destination">Tujuan:</label><br>
+        <select id="destination" name="destination" required>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Solo">Solo</option>
+            <option value="Surabaya">Surabaya</option>
+        </select><br><br>
+
+        <label for="class">Kelas:</label><br>
+        <select id="class" name="class" required>
+            <option value="Eksekutif">Eksekutif</option>
+            <option value="Bisnis">Bisnis</option>
+            <option value="Ekonomi">Ekonomi</option>
+        </select><br><br>
+
+        <label for="tickets">Banyak Tiket:</label><br>
+        <input type="number" id="tickets" name="tickets" min="1" required><br><br>
+
+        <label for="member">Status Member:</label><br>
+        <input type="radio" id="memberYes" name="member" value="Yes" required> Anggota
+        <input type="radio" id="memberNo" name="member" value="No" required> Bukan Anggota<br><br>
+
+        <input type="button" value="Hitung" onclick="calculate()">
+    </form>
+
+    <div class="result" id="result">
+        <p><strong>Harga Tiket:</strong> <span id="ticketPrice"></span></p>
+        <p><strong>Subtotal:</strong> <span id="subtotal"></span></p>
+        <p><strong>Diskon:</strong> <span id="discount"></span></p>
+        <p><strong>Total Bayar:</strong> <span id="total"></span></p>
+    </div>
+</div>
+
+<script>
+    const prices = {
+        Jakarta: { Eksekutif: 70000, Bisnis: 40000, Ekonomi: 10000 },
+        Solo: { Eksekutif: 80000, Bisnis: 50000, Ekonomi: 20000 },
+        Surabaya: { Eksekutif: 90000, Bisnis: 60000, Ekonomi: 30000 }
+    };
+
+    function calculate() {
+        const destination = document.getElementById("destination").value;
+        const travelClass = document.getElementById("class").value;
+        const tickets = parseInt(document.getElementById("tickets").value);
+        const isMember = document.querySelector('input[name="member"]:checked').value === "Yes";
+
+        const ticketPrice = prices[destination][travelClass];
+        const subtotal = ticketPrice * tickets;
+        const discount = isMember ? 0.1 * subtotal : 0;
+        const total = subtotal - discount;
+
+        document.getElementById("ticketPrice").textContent = `Rp ${ticketPrice}`;
+        document.getElementById("subtotal").textContent = `Rp ${subtotal}`;
+        document.getElementById("discount").textContent = `Rp ${discount}`;
+        document.getElementById("total").textContent = `Rp ${total}`;
+    }
+</script>
+
+</body>
+</html>

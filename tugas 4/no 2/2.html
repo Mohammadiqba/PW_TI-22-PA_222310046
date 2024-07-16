@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Akar-akar Persamaan Kuadrat</title>
+</head>
+<body>
+    <h1>Menghitung Akar-akar Persamaan Kuadrat</h1>
+    <form id="quadratic-form">
+        <label for="a">a:</label>
+        <input type="number" id="a" required><br><br>
+        <label for="b">b:</label>
+        <input type="number" id="b" required><br><br>
+        <label for="c">c:</label>
+        <input type="number" id="c" required><br><br>
+        <button type="button" onclick="calculateRoots()">Hitung Akar</button>
+    </form>
+
+    <h2>Hasil:</h2>
+    <p id="result"></p>
+
+    <script>
+        function calculateRoots() {
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById('result').innerText = "Mohon masukkan nilai yang valid untuk a, b, dan c.";
+                return;
+            }
+
+            const discriminant = b * b - 4 * a * c;
+
+            if (discriminant > 0) {
+                const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                document.getElementById('result').innerText = `Akar-akar dari persamaan tersebut adalah x1 = ${x1} dan x2 = ${x2}`;
+            } else if (discriminant === 0) {
+                const x = -b / (2 * a);
+                document.getElementById('result').innerText = `Persamaan tersebut memiliki satu akar yaitu x = ${x}`;
+            } else {
+                document.getElementById('result').innerText = "Persamaan tersebut tidak memiliki akar real.";
+            }
+        }
+    </script>
+</body>
+</html>

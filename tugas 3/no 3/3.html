@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Faktorial dan Deret</title>
+</head>
+<html>
+<head>
+    <title>Perhitungan Faktorial dan Deret</title>
+    <script>
+        function calculate() {
+            var N = document.getElementById("number").value;
+            N = parseInt(N);
+
+            if (isNaN(N) || N < 0) {
+                alert("Masukkan angka yang valid!");
+                return;
+            }
+
+            var factorialResult = factorial(N);
+            var sumSeriesResult = sumSeries(N);
+
+            document.getElementById("factorialResult").value = factorialResult;
+            document.getElementById("sumSeriesResult").value = sumSeriesResult;
+        }
+
+        function factorial(n) {
+            if (n === 0) {
+                return 1;
+            } else {
+                return n * factorial(n - 1);
+            }
+        }
+
+        function sumSeries(n) {
+            return n * (n + 1) / 2;
+        }
+
+        function resetForm() {
+            document.getElementById("number").value = "";
+            document.getElementById("factorialResult").value = "";
+            document.getElementById("sumSeriesResult").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h2>PERHITUNGAN FAKTORIAL dan DERET</h2>
+    <form>
+        <label for="number">N:</label>
+        <input type="number" id="number" name="number"><br><br>
+        <input type="button" value="Submit" onclick="calculate()">
+        <input type="button" value="Reset" onclick="resetForm()"><br><br>
+        <label for="factorialResult">Faktorial:</label>
+        <input type="text" id="factorialResult" readonly><br><br>
+        <label for="sumSeriesResult">Jumlah Deret:</label>
+        <input type="text" id="sumSeriesResult" readonly>
+    </form>
+</body>
+</html>

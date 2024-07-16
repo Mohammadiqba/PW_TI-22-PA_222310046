@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Hewan Dilindungi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: white;
+            border: 2px solid black;
+            max-width: 800px; 
+            margin: auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px; 
+        }
+        .animal-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .animal {
+            margin-bottom: 30px;
+            border: 1px solid black;
+            padding: 10px;
+            flex-basis: 30%;
+            box-sizing: border-box; 
+        }
+        .animal img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid black;
+        }
+        .animal-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .animal-desc {
+            font-size: 16px;
+            text-align: justify;
+            padding: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .animal {
+                flex-basis: 100%; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: green;">Daftar Hewan Dilindungi</h1>
+    </div>
+    
+    <div class="animal-list">
+        <div class="animal">
+            <img src="orang utan.png" alt="Orang Utan">
+            <p class="animal-name">Orang Utan</p>
+            <p class="animal-desc">Orang utan dikenal oleh habitat seluruh badannya yang berwarna merah. Satwa ini merupakan mamalia arboreal terbesar yang menghabiskan hampir seluruh waktunya di pepohonan. Langka dan keberadaannya sudah terancam punah.</p>
+        </div>
+        <div class="animal">
+            <img src="Kera emas.png" alt="Kera Emas">
+            <p class="animal-name">Kera Emas</p>
+            <p class="animal-desc">Monyet yang unik ini juga dikenal sebagai kera emas memiliki adaptasi yang sangat baik di daerah dingin. Lingkungan yang lembab hingga dingin, kera emas menyesuaikan dengan adaptasi yang hebat dalam penglihatan.</p>
+        </div>
+        <div class="animal">
+            <img src="burung.png" alt="Burung Cendrawasih">
+            <p class="animal-name">Burung Cendrawasih</p>
+            <p class="animal-desc">Burung cendrawasih termasuk ke dalam hewan langka dan hanya bisa ditemukan di Papua. Burung cendrawasih punya tampilan yang sangat menarik membuat burung ini sering menjadi perburuan untuk dijadikan.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © Mohammad Iqbal 2022</p>
+    </footer>
+</body>
+</html>
